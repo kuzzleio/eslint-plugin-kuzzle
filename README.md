@@ -2,18 +2,15 @@
 
 Kuzzle Coding Standard
 
-## Installation
+## Install our coding standard
 
-Install ESLint and the plugin
+1) Install ESLint and the plugin
 
 ```sh
 npm i eslint eslint-plugin-kuzzle
 ```
 
-
-## Usage
-
-Add `kuzzle` to the plugins section of your `.eslintrc` configuration file and select the default rule set:
+2) Add `kuzzle` to the plugins section of your `.eslintrc` configuration file and select the default rule set:
 
 ```json
 {
@@ -24,14 +21,20 @@ Add `kuzzle` to the plugins section of your `.eslintrc` configuration file and s
     "plugin:kuzzle/typescript",
   ]
 }
-
 ```
+
+3) Run Prettier to format the code accordingly
+
+```sh
+echo {}> .prettierrc.json
+npx prettier lib/ test/ features/ --write
+```
+
+4) Commit relevant files
 
 ## Available rule sets
 
   - `plugin:kuzzle/default`: default rules between all javascript projects
   - `plugin:kuzzle/node`: rules for Node.js projects
   - `plugin:kuzzle/typescript`: rules for Typescript projects
-
-
 
