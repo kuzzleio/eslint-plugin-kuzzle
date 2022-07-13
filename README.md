@@ -30,7 +30,9 @@ echo {}> .prettierrc.json
 npx prettier lib/ test/ features/ --write
 ```
 
-4) Commit relevant files
+4) Remove unused eslint-related dependencies (such as `@typescript-eslint/eslint-plugin`, etc)
+
+5) Commit relevant files
 
 ## Available rule sets
 
