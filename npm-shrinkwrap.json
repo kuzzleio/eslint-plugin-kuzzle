@@ -11,10 +11,11 @@
       "dependencies": {
         "@typescript-eslint/eslint-plugin": "^5.30.6",
         "@typescript-eslint/parser": "^5.30.6",
-        "eslint-plugin-prettier": "^4.2.1"
+        "eslint": "^8.0.1",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.7.1"
       },
       "devDependencies": {
-        "eslint": "^8.0.1",
         "eslint-plugin-eslint-plugin": "^4.0.1",
         "mocha": "^10.0.0"
       },
@@ -1548,7 +1549,6 @@
       "version": "2.7.1",
       "resolved": "https://registry.npmjs.org/prettier/-/prettier-2.7.1.tgz",
       "integrity": "sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==",
-      "peer": true,
       "bin": {
         "prettier": "bin-prettier.js"
       },
@@ -3053,8 +3053,7 @@
     "prettier": {
       "version": "2.7.1",
       "resolved": "https://registry.npmjs.org/prettier/-/prettier-2.7.1.tgz",
-      "integrity": "sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==",
-      "peer": true
+      "integrity": "sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g=="
     },
     "prettier-linter-helpers": {
       "version": "1.0.0",

@@ -4,10 +4,12 @@ Kuzzle Coding Standard
 
 ## Install our coding standard
 
-1) Install ESLint and the plugin
+1) Install the plugin
+
+__The plugin will also install eslint and prettier as dependencies__
 
 ```sh
-npm i eslint eslint-plugin-kuzzle prettier
+npm i eslint-plugin-kuzzle
 ```
 
 2) Add `kuzzle` to the plugins section of your `.eslintrc` configuration file and select the default rule set:
