@@ -25,10 +25,7 @@
     "eslint-plugin-eslint-plugin": "^5.0.6",
     "mocha": "^10.0.0"
   },
-  "engines": {
-    "node": "14.x || >= 16"
-  },
-  "license": "ISC",
+  "license": "Apache 2",
   "files": [
     "lib/",
     "README.md",
