@@ -7,7 +7,7 @@ Kuzzle Coding Standard
 1) Install the plugin
 
 ```sh
-npm i eslint prettier eslint-plugin-kuzzle --save dev
+npm i eslint-plugin-kuzzle --save dev
 ```
 
 2) Add `kuzzle` to the plugins section of your `.eslintrc` configuration file and select the default rule set:
@@ -39,4 +39,3 @@ npx prettier lib/ test/ features/ --write
   - `plugin:kuzzle/default`: default rules between all javascript projects
   - `plugin:kuzzle/node`: rules for Node.js projects
   - `plugin:kuzzle/typescript`: rules for Typescript projects
-
