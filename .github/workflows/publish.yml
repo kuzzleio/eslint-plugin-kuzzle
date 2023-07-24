@@ -15,7 +15,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: npm
       - run: npm install
-      - run: npm test
-      - run: npm whoami; npm --ignore-scripts publish
+      - run: npm run lint
+      - run: npm run test
+      - run: npm whoami; npm --workspaces publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN }}
