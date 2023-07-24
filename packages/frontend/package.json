@@ -1,0 +1,44 @@
+{
+  "name": "eslint-plugin-vue-kuzzle",
+  "version": "0.0.8",
+  "description": "Kuzzle Vue Coding Standard",
+  "homepage": "https://github.com/kuzzleio/eslint-plugin-kuzzle",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuzzleio/eslint-plugin-kuzzle.git",
+    "directory": "packages/frontend"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "vue",
+    "kuzzle"
+  ],
+  "author": "The Kuzzle Team",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint lib"
+  },
+  "dependencies": {
+    "@vue/eslint-config-prettier": "8.0.*",
+    "@vue/eslint-config-standard": "8.0.*",
+    "@vue/eslint-config-standard-with-typescript": "8.0.*",
+    "@vue/eslint-config-typescript": "11.0.*"
+  },
+  "devDependencies": {
+    "eslint-plugin-eslint-plugin": "^5.0.6"
+  },
+  "license": "Apache 2",
+  "files": [
+    "lib/",
+    "README.md",
+    "package.json"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./importOption": "./lib/importOption.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

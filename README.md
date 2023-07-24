@@ -5,6 +5,7 @@ This repository group the different eslint config packages.
 ## Packages
 
 - [Backend config](./packages/backend)
+- [Vue.js config](./packages/frontend)
 
 ## Commands
 
