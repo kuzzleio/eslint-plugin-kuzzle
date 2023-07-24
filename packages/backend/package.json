@@ -1,0 +1,43 @@
+{
+  "name": "eslint-plugin-kuzzle",
+  "version": "0.0.8",
+  "description": "Kuzzle Coding Standard",
+  "homepage": "https://github.com/kuzzleio/eslint-plugin-kuzzle",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuzzleio/eslint-plugin-kuzzle.git",
+    "directory": "packages/backend"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "kuzzle"
+  ],
+  "author": "The Kuzzle Team",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint lib",
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-eslint-plugin": "^5.0.6",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^10.2.0"
+  },
+  "license": "Apache 2",
+  "files": [
+    "lib/",
+    "README.md",
+    "package.json"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

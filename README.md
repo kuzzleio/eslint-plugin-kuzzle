@@ -1,58 +1,25 @@
-# eslint-plugin-kuzzle
+# Eslint kuzzle configs
 
-Kuzzle Coding Standard.
+This repository group the different eslint config packages.
 
-This plugin is standalone, meaning that `eslint` and `prettier` are included in the package so you don't need to install them yourself.
+## Packages
 
-## Install our coding standard
+- [Backend config](./packages/backend)
 
-1) Install the plugin
+## Commands
 
-```sh
-npm i eslint-plugin-kuzzle --save-dev
+### Lint
+
+Run lint script for all packages
+
+```
+npm run lint
 ```
 
-2) Add `kuzzle` to the plugins section of your `.eslintrc` configuration file and select the default rule set:
+### Test
 
-```json
-{
-  "plugins": ["kuzzle"],
-  "extends": [
-    "plugin:kuzzle/default",
-    "plugin:kuzzle/node",
-    "plugin:kuzzle/typescript"
-  ]
-}
+Run test script for all packages
+
 ```
-
-3) Run Prettier to format the code accordingly
-
-```sh
-npx prettier lib/ test/ features/ --write
-```
-
-4) Remove unused eslint-related dependencies (such as `@typescript-eslint/eslint-plugin`, `eslint` etc)
-
-5) Commit relevant files
-
-## Available rule sets
-
-  - `plugin:kuzzle/default`: default rules between all javascript projects
-  - `plugin:kuzzle/node`: rules for Node.js projects
-  - `plugin:kuzzle/typescript`: rules for Typescript projects
-
-You can disable the `sort-keys` rule on project that are not libraries:
-
-```json
-{
-  "plugins": ["kuzzle"],
-  "extends": [
-    "plugin:kuzzle/default",
-    "plugin:kuzzle/node",
-    "plugin:kuzzle/typescript"
-  ],
-  "rules": {
-    "sort-keys": ["off"]
-  }
-}
+npm run test
 ```
