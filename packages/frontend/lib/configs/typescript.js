@@ -1,7 +1,12 @@
 module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    // ? Optimize Vue parsing (see: https://github.com/vuejs/vue-eslint-parser/issues/104)
+    parser: {
+      ts: '@typescript-eslint/parser',
+      js: '@typescript-eslint/parser',
+      '<template>': 'espree',
+    },
   },
   extends: [
     '@vue/typescript/recommended',
