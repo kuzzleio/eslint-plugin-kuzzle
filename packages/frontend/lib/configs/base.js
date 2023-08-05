@@ -6,7 +6,5 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-debugger': 'error',
     'import/order': ['error', importOptions(['~', '@'])],
-    'prefer-arrow-callback': 'error',
-    'arrow-body-style': ['error', 'as-needed'],
   },
 };
