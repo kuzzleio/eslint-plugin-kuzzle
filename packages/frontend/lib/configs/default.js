@@ -11,6 +11,13 @@ module.exports = {
       },
     },
     {
+      files: ['tests/**/*.ts'],
+      extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+      },
+    },
+    {
       // Apply vue and typescript rules only on Vue SFC and typescript files
       files: ['src/**/*.{vue,ts}'],
       ...typescriptConfig,
