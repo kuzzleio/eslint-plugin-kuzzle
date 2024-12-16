@@ -1,4 +1,4 @@
-module.exports = {
+const nodeConfig = {
   rules: {},
   env: {
     node: true,
@@ -12,3 +12,5 @@ module.exports = {
     ecmaVersion: 2018,
   },
 };
+
+export default nodeConfig;

@@ -1,4 +1,4 @@
-module.exports = {
+const defaultConfig = {
   plugins: ['prettier'],
   extends: ['eslint:recommended'],
   rules: {
@@ -82,3 +82,5 @@ module.exports = {
     },
   ],
 };
+
+export default defaultConfig;

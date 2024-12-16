@@ -11,6 +11,11 @@ export default tseslint.config(
   nodePlugin.configs['flat/recommended'],
   eslintPlugin.configs['flat/recommended'],
   {
+    rules: {
+      'n/file-extension-in-import': ['error', 'always'],
+    },
+  },
+  {
     languageOptions: {
       globals: {
         ...globals.nodeBuiltin,

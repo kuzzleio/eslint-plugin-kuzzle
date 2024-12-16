@@ -1,30 +1,30 @@
-const rule = require('../lib/rules/array-foreach')
-const RuleTester = require('eslint').RuleTester
+import { RuleTester } from 'eslint';
+import rule from '../dist/lib/rules/array-foreach.js';
 
-const ruleTester = new RuleTester()
+const ruleTester = new RuleTester();
 
 ruleTester.run('array-foreach', rule, {
   valid: [
     {
       code: 'for (const el of els) { el }',
-      parserOptions: {ecmaVersion: 6}
+      languageOptions: { ecmaVersion: 2018 },
     },
     {
       code: 'els.map(el => el)',
-      parserOptions: {ecmaVersion: 6}
+      languageOptions: { ecmaVersion: 2018 },
     },
-    {code: 'forEach()'}
+    { code: 'forEach()' },
   ],
   invalid: [
     {
       code: 'els.forEach(el => el)',
-      parserOptions: {ecmaVersion: 6},
+      languageOptions: { ecmaVersion: 2018 },
       errors: [
         {
           message: 'Prefer for...of instead of Array.forEach',
-          type: 'CallExpression'
-        }
-      ]
-    }
-  ]
-})
+          type: 'CallExpression',
+        },
+      ],
+    },
+  ],
+});

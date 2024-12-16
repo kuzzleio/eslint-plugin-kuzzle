@@ -1,4 +1,4 @@
-module.exports = {
+const typescriptConfig = {
   plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
@@ -20,3 +20,5 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
   },
 };
+
+export default typescriptConfig;
