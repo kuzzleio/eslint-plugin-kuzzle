@@ -1,15 +1,19 @@
-const nodeConfig = {
-  rules: {},
-  env: {
-    node: true,
-    es6: true,
-    mocha: true,
-  },
-  parserOptions: {
-    ecmaFeatures: {
-      impliedStrict: false,
-    },
+import { Linter } from 'eslint';
+import globals from 'globals';
+
+const nodeConfig: Linter.Config = {
+  languageOptions: {
     ecmaVersion: 2018,
+    globals: {
+      ...globals.node,
+      ...globals.es2018,
+      ...globals.mocha,
+    },
+    parserOptions: {
+      ecmaFeatures: {
+        impliedStrict: false,
+      },
+    },
   },
 };
 
