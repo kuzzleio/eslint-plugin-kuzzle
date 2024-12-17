@@ -6,6 +6,7 @@ on:
       - master
       - beta
       - '[0-9]+-dev'
+      - eslint-9
   pull_request:
 
 jobs:
@@ -45,7 +46,7 @@ jobs:
 
   release:
     name: Release process
-    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta') }}
+    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/eslint-9') }}
     needs: [lint, functional-tests]
     runs-on: ubuntu-latest
     permissions:

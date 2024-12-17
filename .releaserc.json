@@ -5,6 +5,10 @@
     {
       "name": "beta",
       "prerelease": true
+    },
+    {
+      "name": "eslint-9",
+      "prerelease": true
     }
   ]
 }
