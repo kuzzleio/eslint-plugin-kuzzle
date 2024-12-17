@@ -19,7 +19,6 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint",
-    "test": "mocha tests --recursive",
     "clean": "rimraf dist",
     "build": "npm run clean && tsc --build"
   },
@@ -45,7 +44,6 @@
   "devDependencies": {
     "@types/node": "^22.10.2",
     "@typescript-eslint/utils": "^8.18.1",
-    "mocha": "^11.0.1",
     "rimraf": "^6.0.1",
     "typescript": "~5.7.0"
   },
