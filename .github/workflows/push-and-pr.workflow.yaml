@@ -46,7 +46,7 @@ jobs:
 
   release:
     name: Release process
-    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/eslint-9') }}
+    if: ${{ github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'beta' || github.ref_name == 'eslint-9') }}
     needs: [lint, functional-tests]
     runs-on: ubuntu-latest
     permissions:
@@ -73,9 +73,9 @@ jobs:
           SEMANTIC_RELEASE_SLACK_WEBHOOK: ${{ secrets.SEMANTIC_RELEASE_SLACK_WEBHOOK }}
         run: npx semantic-release
 
-      - name: Rebase dev branch (keep linear history)
-        if: ${{ github.ref != 'refs/heads/1-dev' }}
-        run: |
-          git fetch --no-tags origin 1-dev:1-dev
-          git rebase ${GITHUB_REF_NAME} 1-dev
-          git push origin 1-dev
+      # - name: Rebase dev branch (keep linear history)
+      #   if: ${{ github.ref != 'refs/heads/1-dev' }}
+      #   run: |
+      #     git fetch --no-tags origin 1-dev:1-dev
+      #     git rebase ${GITHUB_REF_NAME} 1-dev
+      #     git push origin 1-dev
