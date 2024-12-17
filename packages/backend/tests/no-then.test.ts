@@ -1,5 +1,9 @@
 import { RuleTester } from 'eslint';
-import rule from '../dist/lib/rules/no-then.js';
+import { describe, it } from 'vitest';
+import rule from '../lib/rules/no-then.js';
+
+RuleTester.describe = describe;
+RuleTester.it = it;
 
 const ruleTester = new RuleTester();
 

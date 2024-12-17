@@ -1,5 +1,9 @@
 import { RuleTester } from 'eslint';
-import rule from '../dist/lib/rules/array-foreach.js';
+import { describe, it } from 'vitest';
+import rule from '../lib/rules/array-foreach.js';
+
+RuleTester.describe = describe;
+RuleTester.it = it;
 
 const ruleTester = new RuleTester();
 
