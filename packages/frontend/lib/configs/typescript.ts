@@ -1,4 +1,6 @@
-module.exports = {
+import type TSESLint from '@typescript-eslint/utils/ts-eslint';
+
+const typescriptConfig: TSESLint.ClassicConfig.Config = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     // ? Optimize Vue parsing (see: https://github.com/vuejs/vue-eslint-parser/issues/104)
@@ -10,7 +12,7 @@ module.exports = {
   },
   extends: [
     '@vue/typescript/recommended',
-    '@vue/eslint-config-standard-with-typescript',
+    '@vue/standard-with-typescript',
     // Need to repeat prettier here to keep rules priority over previous rulesset
     '@vue/prettier',
   ],
@@ -48,3 +50,5 @@ module.exports = {
     '@typescript-eslint/method-signature-style': 'error',
   },
 };
+
+export default typescriptConfig;

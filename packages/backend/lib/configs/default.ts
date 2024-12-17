@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import { TSESLint } from '@typescript-eslint/utils';
+import type TSESLint from '@typescript-eslint/utils/ts-eslint';
 import jest from 'eslint-plugin-jest';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 

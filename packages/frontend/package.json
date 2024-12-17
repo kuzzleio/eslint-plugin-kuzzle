@@ -15,9 +15,13 @@
     "kuzzle"
   ],
   "author": "The Kuzzle Team",
+  "type": "module",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "eslint",
+    "test": "mocha tests --recursive",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc --build"
   },
   "peerDependencies": {
     "eslint": "^9.10.0",
@@ -30,11 +34,19 @@
   },
   "dependencies": {
     "@vue/eslint-config-prettier": "^10.1.0",
+    "@vue/eslint-config-standard": "^8.0.1",
+    "@vue/eslint-config-standard-with-typescript": "^8.0.0",
     "@vue/eslint-config-typescript": "^14.1.0",
-    "eslint-plugin-jest": "^28.9.0"
+    "eslint-plugin-jest": "^28.9.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.13.0",
+    "typescript-eslint": "^8.17.0"
   },
   "devDependencies": {
-    "eslint-plugin-eslint-plugin": "^6.3.2",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/utils": "^8.18.1",
+    "mocha": "^11.0.1",
+    "rimraf": "^6.0.1",
     "typescript": "~5.7.0"
   },
   "license": "Apache-2.0",
@@ -48,6 +60,6 @@
     "./importOption": "./lib/importOption.js"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
   }
 }

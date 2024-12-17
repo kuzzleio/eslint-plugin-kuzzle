@@ -13,6 +13,12 @@ export default tseslint.config(
   {
     rules: {
       'n/file-extension-in-import': ['error', 'always'],
+      'n/no-unpublished-import': [
+        'error',
+        {
+          ignoreTypeImport: true,
+        },
+      ],
     },
   },
   {
@@ -30,6 +36,9 @@ export default tseslint.config(
         ...globals.mocha,
       },
     },
+  },
+  {
+    ignores: ['**/dist/'],
   },
   prettierPluginRecommended,
 );
