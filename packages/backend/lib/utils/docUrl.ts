@@ -1,8 +1,10 @@
 import * as path from 'node:path';
-
+import { fileURLToPath } from 'node:url';
 import packageJson from '../../package.json' with { type: 'json' };
 
-const docUrl = ({ filename }: ImportMeta) => {
+const docUrl = (meta: ImportMeta) => {
+  const filename = meta.filename ?? fileURLToPath(meta.url);
+
   const url = new URL(packageJson.homepage);
   const rule = path.basename(filename, '.js');
   url.hash = '';
