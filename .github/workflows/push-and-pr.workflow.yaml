@@ -9,6 +9,9 @@ on:
       - eslint-9
   pull_request:
 
+env:
+  HUSKY: 0
+
 jobs:
   lint:
     name: Lint
