@@ -65,6 +65,7 @@ jobs:
         with:
           cache: 'npm'
           node-version: 22.x
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
       - run: npm run build
