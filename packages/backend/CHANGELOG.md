@@ -1,3 +1,10 @@
+# eslint-plugin-kuzzle [1.0.0-eslint-9.5](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/eslint-plugin-kuzzle@1.0.0-eslint-9.4...eslint-plugin-kuzzle@1.0.0-eslint-9.5) (2024-12-18)
+
+
+### Bug Fixes
+
+* **backend:** more workarounds ([7f0a981](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/7f0a981049c238bc8bd19252181c19c7e1dddf1d))
+
 # eslint-plugin-kuzzle [1.0.0-eslint-9.4](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/eslint-plugin-kuzzle@1.0.0-eslint-9.3...eslint-plugin-kuzzle@1.0.0-eslint-9.4) (2024-12-18)
 
 
