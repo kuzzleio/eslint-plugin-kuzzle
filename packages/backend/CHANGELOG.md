@@ -1,3 +1,10 @@
+# eslint-plugin-kuzzle [1.0.0-eslint-9.4](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/eslint-plugin-kuzzle@1.0.0-eslint-9.3...eslint-plugin-kuzzle@1.0.0-eslint-9.4) (2024-12-18)
+
+
+### Bug Fixes
+
+* **backend:** work around eslint-config-prettier referring to removed rules ([df1caa1](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/df1caa1a97e1a83194eed2e9db1989e0c07ebfc6))
+
 # eslint-plugin-kuzzle [1.0.0-eslint-9.3](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/eslint-plugin-kuzzle@1.0.0-eslint-9.2...eslint-plugin-kuzzle@1.0.0-eslint-9.3) (2024-12-18)
 
 
