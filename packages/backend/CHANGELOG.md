@@ -1,3 +1,10 @@
+# eslint-plugin-kuzzle [1.0.0-eslint-9.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/eslint-plugin-kuzzle@1.0.0-eslint-9.1...eslint-plugin-kuzzle@1.0.0-eslint-9.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* **backend:** add missing eslint-config-prettier dep ([203a452](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/203a452ba1d94b65fc7c1473080a4079ea27e962))
+
 # eslint-plugin-kuzzle 1.0.0-eslint-9.1 (2024-12-18)
 
 
