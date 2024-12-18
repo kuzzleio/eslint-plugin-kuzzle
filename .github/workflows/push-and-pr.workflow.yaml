@@ -1,0 +1,86 @@
+name: Push and PR
+
+on:
+  push:
+    branches:
+      - master
+      - beta
+      - '[0-9]+-dev'
+      - eslint-9
+  pull_request:
+
+env:
+  HUSKY: 0
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm ci
+      - run: npm run lint
+
+  functional-tests:
+    name: Functional Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm ci
+      - run: npm run test
+
+  release:
+    name: Release process
+    if: ${{ github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'beta' || github.ref_name == 'eslint-9') }}
+    needs: [lint, functional-tests]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      packages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version: 22.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          SEMANTIC_RELEASE_NPM_PUBLISH: 'true'
+          SEMANTIC_RELEASE_SLACK_WEBHOOK: ${{ secrets.SEMANTIC_RELEASE_SLACK_WEBHOOK }}
+        run: npx multi-semantic-release
+
+      # - name: Rebase dev branch (keep linear history)
+      #   if: ${{ github.ref != 'refs/heads/1-dev' }}
+      #   run: |
+      #     git fetch --no-tags origin 1-dev:1-dev
+      #     git rebase ${GITHUB_REF_NAME} 1-dev
+      #     git push origin 1-dev

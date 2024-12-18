@@ -1,7 +1,8 @@
-const baseConfig = require('./base');
-const typescriptConfig = require('./typescript');
+import type TSESLint from '@typescript-eslint/utils/ts-eslint';
+import baseConfig from './base.js';
+import typescriptConfig from './typescript.js';
 
-module.exports = {
+const defaultConfig: TSESLint.ClassicConfig.Config = {
   ...baseConfig,
   overrides: [
     {
@@ -24,3 +25,5 @@ module.exports = {
     },
   ],
 };
+
+export default defaultConfig;

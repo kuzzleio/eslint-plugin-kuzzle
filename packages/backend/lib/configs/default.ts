@@ -1,0 +1,85 @@
+import js from '@eslint/js';
+import type TSESLint from '@typescript-eslint/utils/ts-eslint';
+import jest from 'eslint-plugin-jest';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+
+const defaultConfig = (plugin: TSESLint.FlatConfig.Plugin): TSESLint.FlatConfig.Config[] => [
+  js.configs.recommended,
+  {
+    plugins: {
+      kuzzle: plugin,
+    },
+    rules: {
+      '@typescript-eslint/ban-ts-comment': 'off',
+      '@typescript-eslint/ban-ts-ignore': 'off',
+      'consistent-return': 'off',
+      curly: 'error',
+      'dot-notation': 'error',
+      eqeqeq: 'error',
+      'func-names': ['error', 'always'],
+      'guard-for-in': 'error',
+      'linebreak-style': ['error', 'unix'],
+      'new-cap': 'warn',
+      'no-caller': 'error',
+      'no-catch-shadow': 'error',
+      'no-console': 'error',
+      'no-else-return': 'error',
+      'no-extend-native': 'error',
+      'no-extra-bind': 'error',
+      'no-eval': 'error',
+      'no-implicit-coercion': 'error',
+      'no-implied-eval': 'error',
+      'no-invalid-this': 'error',
+      'no-irregular-whitespace': 'error',
+      'no-labels': 'error',
+      'no-lone-blocks': 'error',
+      'no-lonely-if': 'warn',
+      'no-loop-func': 'error',
+      'no-multi-spaces': 'warn',
+      'no-multiple-empty-lines': 'warn',
+      'no-native-reassign': 'error',
+      'no-nested-ternary': 'error',
+      'no-new': 'error',
+      'no-new-func': 'error',
+      'no-new-require': 'error',
+      'no-new-wrappers': 'error',
+      'no-return-assign': 'error',
+      'no-self-compare': 'error',
+      'no-sequences': 'error',
+      'no-shadow': 'error',
+      'no-shadow-restricted-names': 'error',
+      'no-throw-literal': 'error',
+      'no-undef': 'error',
+      'no-undef-init': 'warn',
+      'no-unreachable': 'error',
+      'no-unused-expressions': ['error', { allowShortCircuit: true }],
+      'no-useless-call': 'error',
+      'no-with': 'error',
+      'require-atomic-updates': 'off',
+      semi: ['error', 'always'],
+      strict: ['error', 'global'],
+      'vars-on-top': 'error',
+      yoda: ['error', 'never'],
+      'sort-keys': ['error', 'asc'],
+      'keyword-spacing': ['error', { before: true, after: true }],
+      'object-curly-spacing': ['error', 'always'],
+      'comma-spacing': 'error',
+      'no-return-await': 'error',
+
+      // Plugins custom rules
+      'kuzzle/array-foreach': 'error',
+      'prettier/prettier': 'error',
+    },
+  },
+  {
+    files: ['tests/**/*.js', 'features*/**/*.js'],
+    ...jest.configs['flat/recommended'],
+    ...jest.configs['flat/style'],
+    rules: {
+      'sort-keys': 'off',
+    },
+  },
+  eslintPluginPrettierRecommended,
+];
+
+export default defaultConfig;

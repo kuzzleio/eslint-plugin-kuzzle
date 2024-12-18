@@ -1,9 +1,12 @@
-module.exports = {
+import { Rule } from 'eslint';
+import docUrl from '../utils/docUrl.js';
+
+const noThen: Rule.RuleModule = {
   meta: {
     type: 'suggestion',
     docs: {
       description: 'enforce using `async/await` syntax over Promises',
-      url: require('../utils/url')(module),
+      url: docUrl(import.meta),
     },
     schema: [],
     messages: {
@@ -15,12 +18,12 @@ module.exports = {
   create(context) {
     return {
       MemberExpression(node) {
-        if (node.property && node.property.name === 'then') {
+        if (node.property.type === 'Identifier' && node.property.name === 'then') {
           context.report({
             node: node.property,
             messageId: 'thenMessage',
           });
-        } else if (node.property && node.property.name === 'catch') {
+        } else if (node.property.type === 'Identifier' && node.property.name === 'catch') {
           context.report({
             node: node.property,
             messageId: 'catchMessage',
@@ -30,3 +33,5 @@ module.exports = {
     };
   },
 };
+
+export default noThen;

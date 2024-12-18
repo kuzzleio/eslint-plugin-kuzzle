@@ -1,14 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "build": {
+      "inputs": ["lib/**", "tsconfig.json"],
+      "outputs": ["dist/**"]
+    },
     "publish-packages": {
       "cache": false
     },
     "lint": {
-      "outputs": []
+      "inputs": ["lib/**", "eslint.config.js"]
     },
     "test": {
-      "outputs": []
+      "inputs": ["lib/**", "tests/**"]
     }
   }
 }

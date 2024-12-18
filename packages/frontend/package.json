@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-vue-kuzzle",
-  "version": "0.0.13",
+  "version": "1.0.0-eslint-9.1",
   "description": "Kuzzle Vue Coding Standard",
   "homepage": "https://github.com/kuzzleio/eslint-plugin-kuzzle",
   "repository": {
@@ -15,14 +15,16 @@
     "kuzzle"
   ],
   "author": "The Kuzzle Team",
+  "type": "module",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "eslint",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc --build"
   },
   "peerDependencies": {
-    "eslint": ">= 8.50.0 9<",
-    "eslint-plugin-prettier": "^5.1.3",
-    "typescript": ">= 5.2 <5.5"
+    "eslint": "^9.10.0",
+    "typescript": ">= 5.2.0 <5.8.0"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -30,17 +32,22 @@
     }
   },
   "dependencies": {
-    "@vue/eslint-config-prettier": "9.0.*",
-    "@vue/eslint-config-standard": "8.0.*",
-    "@vue/eslint-config-standard-with-typescript": "8.0.*",
-    "@vue/eslint-config-typescript": "13.0.*",
-    "eslint-plugin-jest": "^28.6.0"
+    "@vue/eslint-config-prettier": "^10.1.0",
+    "@vue/eslint-config-standard": "^8.0.1",
+    "@vue/eslint-config-standard-with-typescript": "^8.0.0",
+    "@vue/eslint-config-typescript": "^14.1.0",
+    "eslint-plugin-jest": "^28.9.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.13.0",
+    "typescript-eslint": "^8.17.0"
   },
   "devDependencies": {
-    "eslint-plugin-eslint-plugin": "^6.1.0",
-    "typescript": "5.4.*"
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/utils": "^8.18.1",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.7.0"
   },
-  "license": "Apache 2",
+  "license": "Apache-2.0",
   "files": [
     "lib/",
     "README.md",
@@ -51,6 +58,6 @@
     "./importOption": "./lib/importOption.js"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
   }
 }

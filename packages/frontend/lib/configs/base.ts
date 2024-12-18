@@ -1,6 +1,7 @@
-const importOptions = require('../importOption');
+import type TSESLint from '@typescript-eslint/utils/ts-eslint';
+import importOptions from '../utils/importOptions.js';
 
-module.exports = {
+const baseConfig: TSESLint.ClassicConfig.Config = {
   extends: ['plugin:vue/recommended', '@vue/standard', '@vue/prettier'],
   rules: {
     'no-console': ['error', { allow: ['warn', 'error'] }],
@@ -8,3 +9,5 @@ module.exports = {
     'import/order': ['error', importOptions(['~', '@'])],
   },
 };
+
+export default baseConfig;
