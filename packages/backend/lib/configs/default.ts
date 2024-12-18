@@ -7,7 +7,7 @@ const defaultConfig = (plugin: TSESLint.FlatConfig.Plugin): TSESLint.FlatConfig.
   js.configs.recommended,
   {
     plugins: {
-      [plugin.meta!.name!]: plugin,
+      kuzzle: plugin,
     },
     rules: {
       '@typescript-eslint/ban-ts-comment': 'off',
