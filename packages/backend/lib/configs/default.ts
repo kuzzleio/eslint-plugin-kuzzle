@@ -4,6 +4,7 @@ import jest from 'eslint-plugin-jest';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 delete eslintPluginPrettierRecommended.rules!['@typescript-eslint/member-delimiter-style'];
+delete eslintPluginPrettierRecommended.rules!['@typescript-eslint/type-annotation-spacing'];
 
 const defaultConfig = (plugin: TSESLint.FlatConfig.Plugin): TSESLint.FlatConfig.Config[] => [
   js.configs.recommended,
