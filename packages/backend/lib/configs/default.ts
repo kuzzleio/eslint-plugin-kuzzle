@@ -3,6 +3,8 @@ import type TSESLint from '@typescript-eslint/utils/ts-eslint';
 import jest from 'eslint-plugin-jest';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
+delete eslintPluginPrettierRecommended.rules!['@typescript-eslint/member-delimiter-style'];
+
 const defaultConfig = (plugin: TSESLint.FlatConfig.Plugin): TSESLint.FlatConfig.Config[] => [
   js.configs.recommended,
   {
