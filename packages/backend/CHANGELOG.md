@@ -1,3 +1,10 @@
+# eslint-plugin-kuzzle [1.0.0-eslint-9.3](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/eslint-plugin-kuzzle@1.0.0-eslint-9.2...eslint-plugin-kuzzle@1.0.0-eslint-9.3) (2024-12-18)
+
+
+### Bug Fixes
+
+* **backend:** fix wrong plugin name, fix node config not an array ([6499c63](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/6499c631ac1039ef13de3ccfa1c5f76c26ec1338))
+
 # eslint-plugin-kuzzle [1.0.0-eslint-9.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/eslint-plugin-kuzzle@1.0.0-eslint-9.1...eslint-plugin-kuzzle@1.0.0-eslint-9.2) (2024-12-18)
 
 
