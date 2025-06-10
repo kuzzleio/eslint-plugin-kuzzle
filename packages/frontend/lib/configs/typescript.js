@@ -10,7 +10,6 @@ module.exports = {
   },
   extends: [
     '@vue/typescript/recommended',
-    '@vue/eslint-config-standard-with-typescript',
     // Need to repeat prettier here to keep rules priority over previous rulesset
     '@vue/prettier',
   ],
