@@ -18,9 +18,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install additional libraries
-        uses: ./.github/actions/install-packages
-
       - name: Setup nodeJS
         uses: actions/setup-node@v4
         with:
