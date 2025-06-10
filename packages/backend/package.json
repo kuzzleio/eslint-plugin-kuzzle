@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-kuzzle",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Kuzzle Coding Standard",
   "homepage": "https://github.com/kuzzleio/eslint-plugin-kuzzle",
   "repository": {
