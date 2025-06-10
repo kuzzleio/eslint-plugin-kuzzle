@@ -12,16 +12,23 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [18, 20]
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install additional libraries
+        uses: ./.github/actions/install-packages
+
+      - name: Setup nodeJS
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
+          cache: 'npm'
+
       - name: Install
         run: npm install
+
       - name: Test
         run: npm run test
