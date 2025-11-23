@@ -65,14 +65,14 @@ module.exports = {
   overrides: [
     {
       files: ['tests/**/*.js', 'features*/**/*.js'],
-      extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+      extends: [],
       rules: {
         'sort-keys': 'off',
       },
     },
     {
       files: ['tests/**/*.ts'],
-      extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+      extends: [],
       parserOptions: {
         parser: '@typescript-eslint/parser',
       },
