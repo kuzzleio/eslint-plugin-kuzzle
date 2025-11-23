@@ -32,8 +32,7 @@
   "dependencies": {
     "@vue/eslint-config-prettier": "9.0.*",
     "@vue/eslint-config-standard": "8.0.*",
-    "@vue/eslint-config-typescript": "13.0.*",
-    "eslint-plugin-jest": "^28.6.0"
+    "@vue/eslint-config-typescript": "13.0.*"
   },
   "devDependencies": {
     "eslint-plugin-eslint-plugin": "^6.1.0",

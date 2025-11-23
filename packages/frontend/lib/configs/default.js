@@ -12,7 +12,7 @@ module.exports = {
     },
     {
       files: ['tests/**/*.ts'],
-      extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+      extends: [],
       parserOptions: {
         parser: '@typescript-eslint/parser',
       },
