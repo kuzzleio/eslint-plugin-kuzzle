@@ -14,13 +14,6 @@ const pj = resolve(__dirname, '..', 'package.json');
 const pkg = JSON.parse(readFileSync(pj, 'utf8'));
 
 const plugin: TSESLint.FlatConfig.Plugin = {
-  configs: {
-    get default() {
-      return defaultConf;
-    },
-    node: nodeConfig,
-    typescript: typescriptConfig,
-  },
   meta: {
     name: pkg.name,
     version: pkg.version,
@@ -31,6 +24,14 @@ const plugin: TSESLint.FlatConfig.Plugin = {
   },
 };
 
-const defaultConf = defaultConfig(plugin);
+// `default` registers the plugin under the `kuzzle` namespace, so it needs the
+// object above to exist first. Assigning the configs after the fact keeps that
+// dependency explicit, rather than hiding it behind a getter and a temporal
+// dead zone.
+plugin.configs = {
+  default: defaultConfig(plugin),
+  node: nodeConfig,
+  typescript: typescriptConfig,
+};
 
 export default plugin;
