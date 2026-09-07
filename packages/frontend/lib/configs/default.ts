@@ -1,29 +1,15 @@
-import type TSESLint from '@typescript-eslint/utils/ts-eslint';
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 import baseConfig from './base.js';
 import typescriptConfig from './typescript.js';
 
-const defaultConfig: TSESLint.ClassicConfig.Config = {
+/**
+ * The full Kuzzle Vue standard: the shared rules, the Vue-aware TypeScript
+ * parser setup, then the TypeScript rules.
+ */
+const defaultConfig = defineConfigWithVueTs(
   ...baseConfig,
-  overrides: [
-    {
-      files: ['vite.config.ts'],
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-      },
-    },
-    {
-      files: ['tests/**/*.ts'],
-      extends: ['plugin:jest/recommended', 'plugin:jest/style'],
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-      },
-    },
-    {
-      // Apply vue and typescript rules only on Vue SFC and typescript files
-      files: ['src/**/*.{vue,ts}'],
-      ...typescriptConfig,
-    },
-  ],
-};
+  vueTsConfigs.recommended,
+  ...typescriptConfig,
+);
 
 export default defaultConfig;

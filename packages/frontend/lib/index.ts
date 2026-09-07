@@ -11,10 +11,10 @@ const __dirname = dirname(__filename);
 const pj = resolve(__dirname, '..', 'package.json');
 const pkg = JSON.parse(readFileSync(pj, 'utf8'));
 
-const plugin: TSESLint.Linter.Plugin = {
+const plugin: TSESLint.FlatConfig.Plugin = {
   configs: {
-    default: defaultConfig,
     base: baseConfig,
+    default: defaultConfig,
     typescript: typescriptConfig,
   },
   meta: {

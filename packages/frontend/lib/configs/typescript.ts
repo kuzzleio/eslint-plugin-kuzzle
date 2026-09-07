@@ -1,54 +1,49 @@
 import type TSESLint from '@typescript-eslint/utils/ts-eslint';
 
-const typescriptConfig: TSESLint.ClassicConfig.Config = {
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    // ? Optimize Vue parsing (see: https://github.com/vuejs/vue-eslint-parser/issues/104)
-    parser: {
-      ts: '@typescript-eslint/parser',
-      js: '@typescript-eslint/parser',
-      '<template>': 'espree',
+/**
+ * TypeScript rules, applied to Vue SFCs as well as plain `.ts` files.
+ *
+ * The parser is not set here: `@vue/eslint-config-typescript` already wires
+ * `vue-eslint-parser` with `@typescript-eslint/parser` for the script blocks,
+ * which is what `configs.default` composes below.
+ */
+const typescriptConfig: TSESLint.FlatConfig.ConfigArray = [
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.vue'],
+    rules: {
+      /**
+       * Force consistent type imports
+       *
+       * @see https://typescript-eslint.io/blog/consistent-type-imports-and-exports-why-and-how/
+       */
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          disallowTypeAnnotations: true,
+          fixStyle: 'inline-type-imports',
+          prefer: 'type-imports',
+        },
+      ],
+      // Normalize method signature style
+      '@typescript-eslint/method-signature-style': 'error',
+      '@typescript-eslint/no-import-type-side-effects': 'error',
+      // Normalize eqeqeq rules in template like in script
+      'vue/eqeqeq': ['error', 'always'],
+      // Force self-closing to improve readability of templates
+      'vue/html-self-closing': [
+        'error',
+        {
+          html: {
+            component: 'always',
+            normal: 'always',
+            void: 'any',
+          },
+          math: 'always',
+          svg: 'always',
+        },
+      ],
     },
   },
-  extends: [
-    '@vue/typescript/recommended',
-    '@vue/standard-with-typescript',
-    // Need to repeat prettier here to keep rules priority over previous rulesset
-    '@vue/prettier',
-  ],
-  rules: {
-    // Normalize eqeqeq rules in template like in script
-    'vue/eqeqeq': ['error', 'always'],
-    // Force self-closing to improve readability of templates
-    'vue/html-self-closing': [
-      'error',
-      {
-        html: {
-          void: 'any',
-          normal: 'always',
-          component: 'always',
-        },
-        svg: 'always',
-        math: 'always',
-      },
-    ],
-    /**
-     * Force consistent type imports
-     *
-     * @see https://typescript-eslint.io/blog/consistent-type-imports-and-exports-why-and-how/
-     */
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      {
-        disallowTypeAnnotations: true,
-        fixStyle: 'inline-type-imports',
-        prefer: 'type-imports',
-      },
-    ],
-    '@typescript-eslint/no-import-type-side-effects': 'error',
-    // Normalize methode signature style
-    '@typescript-eslint/method-signature-style': 'error',
-  },
-};
+];
 
 export default typescriptConfig;
