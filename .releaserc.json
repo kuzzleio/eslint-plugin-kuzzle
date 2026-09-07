@@ -1,5 +1,7 @@
 {
-  "extends": ["semantic-release-config-kuzzle"],
+  "extends": [
+    "semantic-release-config-kuzzle"
+  ],
   "branches": [
     "master",
     {
@@ -7,8 +9,8 @@
       "prerelease": true
     },
     {
-      "name": "eslint-9",
-      "prerelease": true
+      "name": "1-dev",
+      "prerelease": "dev"
     }
   ]
 }
