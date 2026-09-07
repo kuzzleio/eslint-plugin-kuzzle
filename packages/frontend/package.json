@@ -5,7 +5,7 @@
   "homepage": "https://github.com/kuzzleio/eslint-plugin-kuzzle",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kuzzleio/eslint-plugin-kuzzle.git",
+    "url": "git+https://github.com/kuzzleio/eslint-plugin-kuzzle.git",
     "directory": "packages/frontend"
   },
   "keywords": [
