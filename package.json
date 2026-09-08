@@ -1,6 +1,6 @@
 {
   "name": "eslint-kuzzle",
-  "version": "1.0.0-dev.1",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://github.com/kuzzleio/eslint-plugin-kuzzle",
   "workspaces": [
