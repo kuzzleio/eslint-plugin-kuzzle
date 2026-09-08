@@ -79,6 +79,6 @@ Beyond that:
   Prettier, which the same config then had to undo
 - the `eslint-plugin-jest` override is gone. No Kuzzle project uses Jest
 - `eslint-plugin-vue` moves from 9 to 10, `@vue/eslint-config-typescript` from
-  14.1 to 14.9, `typescript-eslint` from 8.17 to 8.51
+  14.1 to 14.9, `typescript-eslint` from 8.17 to 8.70
 - the `./importOption` export is now `./importOptions`, which is the name of the
   file it was always meant to point at
