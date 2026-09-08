@@ -1,3 +1,9 @@
+## [1.0.0-dev.3](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.0-dev.2...v1.0.0-dev.3) (2026-09-08)
+
+### Features
+
+* **deps:** widen the typescript peer range to <6.1.0 ([d8acc4d](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/d8acc4dd63fa0b62303655f12899838e7552d675))
+
 ## [1.0.0-dev.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2026-09-08)
 
 ### Bug Fixes
