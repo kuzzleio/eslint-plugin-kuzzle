@@ -1,3 +1,9 @@
+## [1.0.0-dev.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2026-09-08)
+
+### Bug Fixes
+
+* **ci:** stop pinning npm 9, which cannot publish under trusted publishing ([6c5a76f](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/6c5a76f005ee091e1f3d50620abb8787114ed41d))
+
 ## 1.0.0-dev.1 (2026-09-08)
 
 ### ⚠ BREAKING CHANGES

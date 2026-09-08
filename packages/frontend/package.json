@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-vue-kuzzle",
-  "version": "1.0.0-dev.1",
+  "version": "1.0.0-dev.2",
   "description": "Kuzzle Vue Coding Standard",
   "homepage": "https://github.com/kuzzleio/eslint-plugin-kuzzle",
   "repository": {
