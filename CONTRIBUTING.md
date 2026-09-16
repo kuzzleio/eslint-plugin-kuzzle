@@ -76,13 +76,20 @@ Markdown. Run `npx prettier --write .` if it complains.
 
 ## Branches and releases
 
-| Branch   | Channel | Published as   |
-| -------- | ------- | -------------- |
-| `master` | latest  | `1.2.3`        |
-| `beta`   | beta    | `1.2.3-beta.1` |
-| `1-dev`  | dev     | `1.2.3-dev.1`  |
+This branch is the **1.x maintenance line**. The current major lives on
+`2-stable` / `2-dev`; see the `CONTRIBUTING.md` there for the full picture.
 
-Open pull requests against `1-dev`.
+| Branch     | npm dist-tag | Published as    |
+| ---------- | ------------ | --------------- |
+| `1-stable` | `1.x`        | `1.2.3`         |
+| `1-dev`    | `1.x-dev`    | `1.2.3-1-dev.1` |
+
+Open pull requests against `1-dev`. `1-stable` is pinned to the `1.x.x` range,
+so only `fix:` and `feat:` commits are accepted here — a breaking change belongs
+on the current major, not on a maintenance branch.
+
+`npm install eslint-plugin-kuzzle` serves the latest 2.x; this line is reached
+with `@1.x`.
 
 Releases are automatic: `semantic-release` runs in CI on every push to those
 branches, computes the version from the commits, publishes both packages to npm
