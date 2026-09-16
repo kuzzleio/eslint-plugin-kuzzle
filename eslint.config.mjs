@@ -38,7 +38,9 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['**/dist/'],
+    // The fixture is deliberately unsorted and its imports are never installed:
+    // it is input for the config tests, not source code.
+    ignores: ['**/dist/', '**/tests/fixture/'],
   },
   prettierPluginRecommended,
 );
