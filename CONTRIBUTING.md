@@ -88,3 +88,29 @@ Releases are automatic: `semantic-release` runs in CI on every push to those
 branches, computes the version from the commits, publishes both packages to npm
 with trusted publishing, tags the repository and updates
 `changelogs/CHANGELOG_<channel>.md`. **Never bump a version by hand.**
+
+### Backmerge after a stable release
+
+The one manual step. A release on `master` lands a `chore(release):` commit and
+a tag that exist **only** on `master`. As long as they are not merged back,
+`semantic-release` on `1-dev` cannot see them and keeps numbering from the last
+prerelease: after `v1.0.1` shipped, `1-dev` produced `v1.0.1-dev.2`, which sorts
+_below_ the stable it was supposed to follow, and `npm install @dev` served an
+older package than `@latest`.
+
+So, right after a release on `master`:
+
+```sh
+git checkout 1-dev
+git pull
+git merge origin/master
+git push origin 1-dev
+```
+
+Expect a conflict on the version field of `package.json`, `package-lock.json`
+and both `packages/*/package.json`: keep the one from `master`, it is the higher
+version. Nothing else should conflict.
+
+This is deliberately not automated — a bot merge that fails on those conflicts
+goes unnoticed, and the whole point is that someone checks the numbering is
+still coherent.

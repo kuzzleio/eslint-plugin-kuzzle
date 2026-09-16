@@ -96,12 +96,8 @@ jobs:
           SEMANTIC_RELEASE_SLACK_WEBHOOK: ${{ secrets.SEMANTIC_RELEASE_SLACK_WEBHOOK }}
         run: npx semantic-release
 
-      # - name: Rebase dev branch (keep linear history)
-      #   if: ${{ github.ref != 'refs/heads/1-dev' }}
-      #   run: |
-      #     git fetch --no-tags origin 1-dev:1-dev
-      #     git rebase ${GITHUB_REF_NAME} 1-dev
-      #     git push origin 1-dev
+      # No backmerge job here on purpose: after a release on master, someone
+      # merges master back into 1-dev by hand. See CONTRIBUTING.md.
 
   documentation_deploy:
     name: Documentation - Deploy
