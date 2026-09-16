@@ -27,22 +27,12 @@ ruleTester.run('no-then', rule, {
     {
       code: 'promise.then(() => {})',
       languageOptions: { ecmaVersion: 2018 },
-      errors: [
-        {
-          message: 'Prefer async/await to Promise.then()',
-          type: 'Identifier',
-        },
-      ],
+      errors: [{ messageId: 'thenMessage' }],
     },
     {
       code: 'promise.catch(() => {})',
       languageOptions: { ecmaVersion: 2018 },
-      errors: [
-        {
-          message: 'Prefer async/await to Promise.catch()',
-          type: 'Identifier',
-        },
-      ],
+      errors: [{ messageId: 'catchMessage' }],
     },
   ],
 });

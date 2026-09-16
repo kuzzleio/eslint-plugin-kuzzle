@@ -1,5 +1,5 @@
 // ? Eslint plugin rules are not applicable for this function, because it's not a code of eslint rule
-/* eslint-disable eslint-plugin/prefer-message-ids, eslint-plugin/prefer-object-rule, eslint-plugin/require-meta-type, eslint-plugin/require-meta-schema */
+/* eslint-disable eslint-plugin/prefer-object-rule, eslint-plugin/require-meta-type, eslint-plugin/require-meta-schema */
 const importOptions = (alias: string | string[]) => {
   const aliases = Array.isArray(alias) ? alias : [alias];
 
