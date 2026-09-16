@@ -1,3 +1,9 @@
+## [1.0.2-dev.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.2-dev.1...v1.0.2-dev.2) (2026-09-16)
+
+### Bug Fixes
+
+* **rules:** stop reporting computed member access ([ce9ecf9](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/ce9ecf909b7114c99c1a0c2728e218c18fa5d474))
+
 ## [1.0.2-dev.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.1...v1.0.2-dev.1) (2026-09-16)
 
 ### Bug Fixes
