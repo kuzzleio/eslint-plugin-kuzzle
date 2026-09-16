@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.0...v1.0.1) (2026-09-16)
+
+### Bug Fixes
+
+* **rules:** point meta.docs.url at the documentation site ([d2a4524](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/d2a4524010aebacb8cf8ced9b9383a14ed89a169))
+
 ## 1.0.0 (2026-09-08)
 
 ### ⚠ BREAKING CHANGES
