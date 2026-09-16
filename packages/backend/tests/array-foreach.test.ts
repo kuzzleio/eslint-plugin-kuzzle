@@ -18,6 +18,11 @@ ruleTester.run('array-foreach', rule, {
       languageOptions: { ecmaVersion: 2018 },
     },
     { code: 'forEach()' },
+    // `forEach` here is a variable holding the key, not a `.forEach()` call.
+    {
+      code: 'obj[forEach](el => el)',
+      languageOptions: { ecmaVersion: 2018 },
+    },
   ],
   invalid: [
     {
