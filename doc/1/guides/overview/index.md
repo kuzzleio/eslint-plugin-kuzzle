@@ -66,8 +66,19 @@ export default [
 |            |                                            |
 | ---------- | ------------------------------------------ |
 | Node.js    | `^20.19.0 \|\| >=22.12.0`                  |
-| ESLint     | `^9.10.0 \|\| ^10.0.0`                     |
+| ESLint     | see below                                  |
 | TypeScript | `>=5.2.0 <6.1.0`, optional peer dependency |
+
+The two packages do not accept the same ESLint range:
+
+| Package                    | ESLint                 |
+| -------------------------- | ---------------------- |
+| `eslint-plugin-kuzzle`     | `^9.10.0 \|\| ^10.0.0` |
+| `eslint-plugin-vue-kuzzle` | `^9.10.0`              |
+
+`eslint-plugin-vue-kuzzle` is held back by `eslint-plugin-import`, whose latest
+release calls a `SourceCode` method that ESLint 10 removed — the rule crashes
+the lint run rather than reporting.
 
 ## Next
 
