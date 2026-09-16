@@ -28,12 +28,7 @@ ruleTester.run('array-foreach', rule, {
     {
       code: 'els.forEach(el => el)',
       languageOptions: { ecmaVersion: 2018 },
-      errors: [
-        {
-          message: 'Prefer for...of instead of Array.forEach',
-          type: 'CallExpression',
-        },
-      ],
+      errors: [{ messageId: 'preferMessage' }],
     },
   ],
 });
