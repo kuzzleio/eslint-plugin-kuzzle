@@ -5,7 +5,7 @@ Kuzzle Coding Standard for Vue.js.
 📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/1/guides/frontend/)**
 
 This plugin is standalone: `eslint-plugin-vue`, `@vue/eslint-config-typescript`,
-`@vue/eslint-config-prettier`, `typescript-eslint` and `eslint-plugin-import`
+`@vue/eslint-config-prettier`, `typescript-eslint` and `eslint-plugin-import-x`
 ship with it, so a consuming project only needs `eslint` itself.
 
 ## Install
@@ -34,7 +34,7 @@ eslintrc support, and every config is now a plain array you spread.
 - `vueKuzzle.configs.default`: the full standard — `base`, the Vue-aware
   TypeScript parser setup from `@vue/eslint-config-typescript`, then
   `typescript`. This is what you want unless you have a reason not to
-- `vueKuzzle.configs.base`: Vue recommended rules, `import/order`, `no-console`,
+- `vueKuzzle.configs.base`: Vue recommended rules, `import-x/order`, `no-console`,
   `no-debugger`, then Prettier. No TypeScript
 - `vueKuzzle.configs.typescript`: the Kuzzle TypeScript rules alone, applied to
   `.ts`, `.tsx` and `.vue`. Composing this yourself means also providing a
@@ -49,7 +49,7 @@ config your project actually wants.
 
 ## Overriding
 
-`import/order` is opinionated about aliases, and assumes `~` and `@`. Turn it
+`import-x/order` is opinionated about aliases, and assumes `~` and `@`. Turn it
 off, or reconfigure it with the exported helper:
 
 ```js
@@ -60,11 +60,25 @@ export default [
   ...vueKuzzle.configs.default,
   {
     rules: {
-      'import/order': ['error', importOptions(['@src', '@components'])],
+      'import-x/order': ['error', importOptions(['@src', '@components'])],
     },
   },
 ];
 ```
+
+## Migrating from 1.x
+
+`eslint-plugin-import` is replaced by `eslint-plugin-import-x`, the maintained
+fork: `import/order` becomes `import-x/order`. Rename it in your own overrides
+and in any `eslint-disable` comment — an override left on the old name is
+silently ignored. `importOptions()` itself is unchanged.
+
+`eslint-plugin-import` 2.32.0, its latest release, calls
+`sourceCode.getTokenOrCommentBefore()`, which ESLint 10 removed: the rule
+crashed the lint run instead of reporting.
+
+See the [migration guide](https://docs.kuzzle.io/official-plugins/eslint/1/guides/migration/)
+for the details.
 
 ## Migrating from 1.0.0-eslint-9.x
 

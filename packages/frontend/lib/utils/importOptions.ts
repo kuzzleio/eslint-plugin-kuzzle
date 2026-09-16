@@ -15,7 +15,7 @@ const importOptions = (alias: string | string[]) => {
     ],
     /**
      * ? Particular case: need to exclude `vue` of external import group to can be sorted with pattern
-     * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md#pathgroupsexcludedimporttypes-array
+     * @see https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/order.md#pathgroupsexcludedimporttypes-array
      */
     pathGroupsExcludedImportTypes: ['vue'],
     'newlines-between': 'always',

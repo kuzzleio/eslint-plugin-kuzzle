@@ -3,7 +3,7 @@ code: false
 type: page
 order: 500
 title: Migrating
-description: Migrate to eslint-plugin-kuzzle 1.x and eslint-plugin-vue-kuzzle 1.x
+description: Migrate to eslint-plugin-kuzzle 1.x and eslint-plugin-vue-kuzzle 2.x
 ---
 
 # Migrating
@@ -35,6 +35,40 @@ on `typescript-eslint` directly, and two copies in one lint run conflict.
 **4. Two severities changed.** `sort-keys` and
 [`kuzzle/array-foreach`](/official-plugins/eslint/1/rules/array-foreach/) are
 `warn` instead of `error`.
+
+## Frontend: from `eslint-plugin-vue-kuzzle` 1.x
+
+`eslint-plugin-import` is replaced by
+[`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x), the
+maintained fork. The rule it provides is renamed, and nothing else changes:
+
+| 1.x            | 2.x              |
+| -------------- | ---------------- |
+| `import/order` | `import-x/order` |
+
+`importOptions()` is untouched — same call, same option object, same ordering.
+
+**Rename every mention of the rule in your own configuration**, including
+`eslint-disable` comments:
+
+```diff
+-      'import/order': ['error', importOptions(['@src', '@components'])],
++      'import-x/order': ['error', importOptions(['@src', '@components'])],
+```
+
+```diff
+-// eslint-disable-next-line import/order
++// eslint-disable-next-line import-x/order
+```
+
+An override left on `import/order` is silently ignored — the rule no longer
+exists under that name, so ESLint applies the Kuzzle default instead of yours.
+A stale `eslint-disable` comment is reported by `--report-unused-disable-directives`.
+
+The reason for the swap: `eslint-plugin-import` 2.32.0, its latest release,
+calls `sourceCode.getTokenOrCommentBefore()`, which ESLint 10 removed. The rule
+crashed the whole lint run rather than reporting, so the package could not
+honour the ESLint 10 half of its peer range.
 
 ## Frontend: from `eslint-plugin-vue-kuzzle` 1.0.0-eslint-9.x
 

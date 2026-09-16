@@ -33,7 +33,7 @@ else.
 `eslint-plugin-prettier`, `prettier`, `typescript-eslint` and `globals`.
 `eslint-plugin-vue-kuzzle` ships `eslint-plugin-vue`,
 `@vue/eslint-config-typescript`, `@vue/eslint-config-prettier`,
-`typescript-eslint`, `eslint-plugin-import` and `globals`.
+`typescript-eslint`, `eslint-plugin-import-x` and `globals`.
 
 ::: warning
 If your project already depends on `@typescript-eslint/eslint-plugin`,
