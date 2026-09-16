@@ -18,6 +18,12 @@ const noThen: Rule.RuleModule = {
   create(context) {
     return {
       MemberExpression(node) {
+        // `node.computed` guards against `obj[then]`, where `then` is a
+        // variable that happens to carry that name, not the property read.
+        if (node.computed) {
+          return;
+        }
+
         if (node.property.type === 'Identifier' && node.property.name === 'then') {
           context.report({
             node: node.property,
