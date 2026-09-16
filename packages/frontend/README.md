@@ -2,6 +2,8 @@
 
 Kuzzle Coding Standard for Vue.js.
 
+📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/1/guides/frontend/)**
+
 This plugin is standalone: `eslint-plugin-vue`, `@vue/eslint-config-typescript`,
 `@vue/eslint-config-prettier`, `typescript-eslint` and `eslint-plugin-import`
 ship with it, so a consuming project only needs `eslint` itself.
