@@ -2,7 +2,7 @@
 
 Kuzzle Coding Standard.
 
-📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/1/guides/backend/)**
+📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/2/guides/backend/)**
 
 This plugin is standalone: `eslint-config-prettier`, `eslint-plugin-prettier`,
 `prettier`, `typescript-eslint` and `globals` ship with it, so a consuming
@@ -47,8 +47,8 @@ Registered under the `kuzzle` namespace by `configs.default`:
 
 | Rule                                                                                            | Description                                  | Default |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------- | ------- |
-| [`kuzzle/array-foreach`](https://docs.kuzzle.io/official-plugins/eslint/1/rules/array-foreach/) | enforce `for..of` loops over `Array.forEach` | `warn`  |
-| [`kuzzle/no-then`](https://docs.kuzzle.io/official-plugins/eslint/1/rules/no-then/)             | enforce `async/await` over Promise chains    | off     |
+| [`kuzzle/array-foreach`](https://docs.kuzzle.io/official-plugins/eslint/2/rules/array-foreach/) | enforce `for..of` loops over `Array.forEach` | `warn`  |
+| [`kuzzle/no-then`](https://docs.kuzzle.io/official-plugins/eslint/2/rules/no-then/)             | enforce `async/await` over Promise chains    | off     |
 
 `kuzzle/no-then` ships with the plugin but no config turns it on — neither rule
 has type information, and `no-then` reports any `.then`/`.catch` member

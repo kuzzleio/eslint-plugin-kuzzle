@@ -33,7 +33,7 @@ else.
 `eslint-plugin-prettier`, `prettier`, `typescript-eslint` and `globals`.
 `eslint-plugin-vue-kuzzle` ships `eslint-plugin-vue`,
 `@vue/eslint-config-typescript`, `@vue/eslint-config-prettier`,
-`typescript-eslint`, `eslint-plugin-import` and `globals`.
+`typescript-eslint`, `eslint-plugin-import-x` and `globals`.
 
 ::: warning
 If your project already depends on `@typescript-eslint/eslint-plugin`,
@@ -66,25 +66,14 @@ export default [
 |            |                                            |
 | ---------- | ------------------------------------------ |
 | Node.js    | `^20.19.0 \|\| >=22.12.0`                  |
-| ESLint     | see below                                  |
+| ESLint     | `^9.10.0 \|\| ^10.0.0`                     |
 | TypeScript | `>=5.2.0 <6.1.0`, optional peer dependency |
-
-The two packages do not accept the same ESLint range:
-
-| Package                    | ESLint                 |
-| -------------------------- | ---------------------- |
-| `eslint-plugin-kuzzle`     | `^9.10.0 \|\| ^10.0.0` |
-| `eslint-plugin-vue-kuzzle` | `^9.10.0`              |
-
-`eslint-plugin-vue-kuzzle` is held back by `eslint-plugin-import`, whose latest
-release calls a `SourceCode` method that ESLint 10 removed — the rule crashes
-the lint run rather than reporting.
 
 ## Next
 
-- [Backend projects](/official-plugins/eslint/1/guides/backend/) — Node.js and TypeScript
-- [Vue.js projects](/official-plugins/eslint/1/guides/frontend/)
-- [Tips](/official-plugins/eslint/1/guides/tips/) — editors, CI, overrides, monorepos
-- [Rules](/official-plugins/eslint/1/rules/) — the custom Kuzzle rules
-- [Migrating](/official-plugins/eslint/1/guides/migration/) — coming from 0.0.x, or from a
+- [Backend projects](/official-plugins/eslint/2/guides/backend/) — Node.js and TypeScript
+- [Vue.js projects](/official-plugins/eslint/2/guides/frontend/)
+- [Tips](/official-plugins/eslint/2/guides/tips/) — editors, CI, overrides, monorepos
+- [Rules](/official-plugins/eslint/2/rules/) — the custom Kuzzle rules
+- [Migrating](/official-plugins/eslint/2/guides/migration/) — coming from 0.0.x, or from a
   `1.0.0-eslint-9.x` prerelease

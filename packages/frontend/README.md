@@ -2,7 +2,7 @@
 
 Kuzzle Coding Standard for Vue.js.
 
-📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/1/guides/frontend/)**
+📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/2/guides/frontend/)**
 
 This plugin is standalone: `eslint-plugin-vue`, `@vue/eslint-config-typescript`,
 `@vue/eslint-config-prettier`, `typescript-eslint` and `eslint-plugin-import-x`
@@ -77,7 +77,7 @@ silently ignored. `importOptions()` itself is unchanged.
 `sourceCode.getTokenOrCommentBefore()`, which ESLint 10 removed: the rule
 crashed the lint run instead of reporting.
 
-See the [migration guide](https://docs.kuzzle.io/official-plugins/eslint/1/guides/migration/)
+See the [migration guide](https://docs.kuzzle.io/official-plugins/eslint/2/guides/migration/)
 for the details.
 
 ## Migrating from 1.0.0-eslint-9.x
