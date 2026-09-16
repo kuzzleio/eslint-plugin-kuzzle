@@ -1,15 +1,19 @@
 {
-  "extends": [
-    "semantic-release-config-kuzzle"
-  ],
+  "extends": ["semantic-release-config-kuzzle"],
   "branches": [
-    "master",
     {
-      "name": "beta",
-      "prerelease": true
+      "name": "1-stable",
+      "range": "1.x.x",
+      "channel": "1.x-stable"
     },
     {
       "name": "1-dev",
+      "prerelease": "1-dev",
+      "channel": "1.x-dev"
+    },
+    "2-stable",
+    {
+      "name": "2-dev",
       "prerelease": "dev"
     }
   ]
