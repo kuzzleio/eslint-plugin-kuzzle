@@ -98,7 +98,7 @@ One pair of branches per major: a stable one and the prereleases feeding it.
 | ---------- | ------------ | --------------- |
 | `2-stable` | `latest`     | `2.3.4`         |
 | `2-dev`    | `dev`        | `2.3.4-dev.1`   |
-| `1-stable` | `1.x`        | `1.2.3`         |
+| `1-stable` | `1.x-stable` | `1.2.3`         |
 | `1-dev`    | `1.x-dev`    | `1.2.3-1-dev.1` |
 
 `2-stable` is the default branch — open pull requests against `2-dev`, or

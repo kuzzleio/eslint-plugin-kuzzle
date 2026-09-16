@@ -4,7 +4,7 @@
     {
       "name": "1-stable",
       "range": "1.x.x",
-      "channel": "1.x"
+      "channel": "1.x-stable"
     },
     {
       "name": "1-dev",
