@@ -108,6 +108,30 @@ against `1-dev` for a fix that also has to reach the 1.x line.
 only ever produce 1.x versions, so a `feat!` landing there is refused rather
 than silently released as 2.x.
 
+**Never merge `1-dev` into `1-stable` with a merge commit.** A merge drags the
+`chore(release): 1.2.3-1-dev.N` commit, and its tag, into the maintenance
+branch's history; semantic-release then tries to add the `1.x` channel to that
+prerelease and refuses, because under semver a prerelease never satisfies a
+range without one:
+
+```
+EINVALIDMAINTENANCEMERGE The release `1.0.2-1-dev.1` on branch `1-stable`
+cannot be published as it is out of range.
+```
+
+Integrate by moving `1-stable` to the `1-dev` commit _below_ its release
+commit — the content is identical, the prerelease tag stays out of the history:
+
+```sh
+git push origin <sha of 1-dev~1>:1-stable
+```
+
+The same trap does not exist on the current major: `2-stable` is a plain release
+branch with no range to satisfy, so `2-dev` merges into it normally.
+
+If the 1.x line ever stops needing prereleases, deleting `1-dev` and landing
+fixes straight on `1-stable` removes this footgun entirely.
+
 The prerelease identifiers have to differ — semantic-release rejects two
 branches sharing one — hence `dev` for the current major and `1-dev` for the
 older one, which is why 1.x prereleases read `1.2.3-1-dev.1`.
