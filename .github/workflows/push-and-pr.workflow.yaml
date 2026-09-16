@@ -3,8 +3,7 @@ name: Push and PR
 on:
   push:
     branches:
-      - master
-      - beta
+      - '[0-9]+-stable'
       - '[0-9]+-dev'
   pull_request:
 
@@ -48,7 +47,7 @@ jobs:
 
   release:
     name: Release process
-    if: ${{ github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'beta' || endsWith(github.ref_name, '-dev')) }}
+    if: ${{ github.event_name == 'push' && (endsWith(github.ref_name, '-stable') || endsWith(github.ref_name, '-dev')) }}
     needs: [lint, functional-tests]
     runs-on: ubuntu-24.04
     permissions:
@@ -82,15 +81,21 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          # Names the changelog file (changelogs/CHANGELOG_<channel>.md). Without
-          # it, the shared config falls back to the branch name.
-          RELEASE_CHANNEL: ${{ github.ref_name == '1-dev' && 'dev' || github.ref_name }}
-          # The stable branch. In workspaces mode the shared config publishes
-          # with `--tag $RELEASE_CHANNEL`, mapping it to `latest` only for this
-          # branch; it defaults to `main`, so without this the release from
-          # master lands under a `master` dist-tag and `npm install` keeps
-          # serving the previous version.
-          SEMANTIC_RELEASE_RELEASE_BRANCH: master
+          # Names the changelog file (changelogs/CHANGELOG_<channel>.md) *and*
+          # the npm dist-tag. It must match the `channel` the branch declares in
+          # .releaserc.json, otherwise a release is published under a tag no one
+          # subscribes to.
+          RELEASE_CHANNEL: >-
+            ${{ github.ref_name == '2-stable' && '2-stable'
+             || github.ref_name == '2-dev' && 'dev'
+             || github.ref_name == '1-stable' && '1.x'
+             || github.ref_name == '1-dev' && '1.x-dev'
+             || github.ref_name }}
+          # The current stable branch. In workspaces mode the shared config
+          # publishes with `--tag $RELEASE_CHANNEL` and maps it to `latest` only
+          # when it equals this value, so bumping the major means bumping this
+          # too — otherwise `npm install` keeps serving the previous major.
+          SEMANTIC_RELEASE_RELEASE_BRANCH: 2-stable
           SEMANTIC_RELEASE_NPM_BUILD: 'true'
           SEMANTIC_RELEASE_NPM_PUBLISH: 'true'
           SEMANTIC_RELEASE_SLACK_WEBHOOK: ${{ secrets.SEMANTIC_RELEASE_SLACK_WEBHOOK }}
@@ -102,7 +107,7 @@ jobs:
   documentation_deploy:
     name: Documentation - Deploy
     needs: [release]
-    if: ${{ github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == '1-dev') }}
+    if: ${{ github.event_name == 'push' && (endsWith(github.ref_name, '-stable') || endsWith(github.ref_name, '-dev')) }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -116,5 +121,7 @@ jobs:
           repo: documentation
           github_token: ${{ secrets.ACCESS_TOKEN_CI }}
           workflow_file_name: child_repo.workflow.yml
-          ref: ${{ github.ref_name == 'master' && 'master' || 'develop' }}
-          client_payload: '{"repo_name":"eslint-plugin-kuzzle","branch":"${{ github.ref_name }}","version":"2"}'
+          # A `-stable` branch deploys to docs.kuzzle.io, a `-dev` one to
+          # docs-next.kuzzle.io; the doc version is the major the branch carries.
+          ref: ${{ endsWith(github.ref_name, '-stable') && 'master' || 'develop' }}
+          client_payload: '{"repo_name":"eslint-plugin-kuzzle","branch":"${{ github.ref_name }}","version":"${{ startsWith(github.ref_name, ''1-'') && ''1'' || ''2'' }}"}'
