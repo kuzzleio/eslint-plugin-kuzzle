@@ -19,11 +19,12 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint",
+    "test": "vitest --run",
     "clean": "rimraf dist",
     "build": "npm run clean && tsc --build"
   },
   "peerDependencies": {
-    "eslint": "^9.10.0 || ^10.0.0",
+    "eslint": "^9.10.0",
     "typescript": ">= 5.2.0 <6.1.0"
   },
   "peerDependenciesMeta": {
@@ -43,7 +44,8 @@
     "@types/node": "^22.20.1",
     "@typescript-eslint/utils": "^8.70.0",
     "rimraf": "^6.0.1",
-    "typescript": "~5.9.0"
+    "typescript": "~5.9.0",
+    "vitest": "^3.2.4"
   },
   "license": "Apache-2.0",
   "files": [
