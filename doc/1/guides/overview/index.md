@@ -33,7 +33,7 @@ else.
 `eslint-plugin-prettier`, `prettier`, `typescript-eslint` and `globals`.
 `eslint-plugin-vue-kuzzle` ships `eslint-plugin-vue`,
 `@vue/eslint-config-typescript`, `@vue/eslint-config-prettier`,
-`typescript-eslint`, `eslint-plugin-import` and `globals`.
+`typescript-eslint`, `eslint-plugin-import-x` and `globals`.
 
 ::: warning
 If your project already depends on `@typescript-eslint/eslint-plugin`,
@@ -66,19 +66,8 @@ export default [
 |            |                                            |
 | ---------- | ------------------------------------------ |
 | Node.js    | `^20.19.0 \|\| >=22.12.0`                  |
-| ESLint     | see below                                  |
+| ESLint     | `^9.10.0 \|\| ^10.0.0`                     |
 | TypeScript | `>=5.2.0 <6.1.0`, optional peer dependency |
-
-The two packages do not accept the same ESLint range:
-
-| Package                    | ESLint                 |
-| -------------------------- | ---------------------- |
-| `eslint-plugin-kuzzle`     | `^9.10.0 \|\| ^10.0.0` |
-| `eslint-plugin-vue-kuzzle` | `^9.10.0`              |
-
-`eslint-plugin-vue-kuzzle` is held back by `eslint-plugin-import`, whose latest
-release calls a `SourceCode` method that ESLint 10 removed — the rule crashes
-the lint run rather than reporting.
 
 ## Next
 

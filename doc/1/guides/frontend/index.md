@@ -42,7 +42,7 @@ you have a reason not to.
 
 ### `configs.base`
 
-`eslint-plugin-vue` flat/recommended, `import/order`, `no-console`,
+`eslint-plugin-vue` flat/recommended, `import-x/order`, `no-console`,
 `no-debugger`, then Prettier last. No TypeScript, so no parser for `<script
 lang="ts">`.
 
@@ -73,9 +73,9 @@ reformats. As on the backend, Prettier reads your project's own `.prettierrc`
 and falls back to double quotes without one — add the config your project
 actually wants.
 
-## Overriding `import/order`
+## Overriding `import-x/order`
 
-`import/order` is opinionated about aliases, and `configs.base` assumes the two
+`import-x/order` is opinionated about aliases, and `configs.base` assumes the two
 Kuzzle projects use: `~` and `@`. If yours are different, reconfigure the rule
 with the exported helper rather than rewriting the option object:
 
@@ -87,7 +87,7 @@ export default [
   ...vueKuzzle.configs.default,
   {
     rules: {
-      'import/order': ['error', importOptions(['@src', '@components'])],
+      'import-x/order': ['error', importOptions(['@src', '@components'])],
     },
   },
 ];
@@ -104,7 +104,7 @@ To turn the rule off entirely:
 ```js
 {
   rules: {
-    'import/order': 'off',
+    'import-x/order': 'off',
   },
 }
 ```

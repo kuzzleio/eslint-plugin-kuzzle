@@ -30,6 +30,9 @@
     "turbo": "latest",
     "typescript-eslint": "^8.70.0"
   },
+  "overrides": {
+    "eslint-plugin-vue": "^10.11.0"
+  },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },

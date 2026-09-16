@@ -37,7 +37,7 @@ describe('configs.base', () => {
   it('sorts imports and bans console statements', async () => {
     const results = await lint(plugin.configs!['base'] as Linter.Config[], ['src/unsorted.js']);
 
-    expect(ruleIds(results)).toEqual(expect.arrayContaining(['import/order', 'no-console']));
+    expect(ruleIds(results)).toEqual(expect.arrayContaining(['import-x/order', 'no-console']));
   });
 });
 
@@ -51,7 +51,7 @@ describe('configs.default', () => {
     expect(reported).toEqual(
       expect.arrayContaining([
         'vue/multi-word-component-names',
-        'import/order',
+        'import-x/order',
         '@typescript-eslint/method-signature-style',
       ]),
     );
