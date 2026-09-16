@@ -1,3 +1,9 @@
+## [1.0.2-dev.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.1...v1.0.2-dev.1) (2026-09-16)
+
+### Bug Fixes
+
+* **ci:** publish the stable releases under the latest npm tag ([725cdb3](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/725cdb3d07a7a53a4d6ae232a1e48bca2dc8c485))
+
 ## [1.0.1-dev.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.1-dev.1...v1.0.1-dev.2) (2026-09-16)
 
 ### Bug Fixes
