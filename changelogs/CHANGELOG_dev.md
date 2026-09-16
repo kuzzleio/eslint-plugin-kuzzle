@@ -1,3 +1,45 @@
+## [2.0.0-dev.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.2-dev.2...v2.0.0-dev.1) (2026-09-16)
+
+### ⚠ BREAKING CHANGES
+
+* **frontend:** the `import/order` rule of `eslint-plugin-vue-kuzzle`
+is now `import-x/order`. Any override or `eslint-disable` comment naming
+the old rule must be renamed; an override left on `import/order` is
+silently ignored, and ESLint applies the Kuzzle default instead.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
+
+### Dependencies
+
+* **deps:** hold commitlint at 19 and regenerate the lockfile ([9b6c8de](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/9b6c8decdf2588845e54b980edf790a9eb66d298))
+* **deps:** lint and test against ESLint 10 ([7bf101f](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/7bf101fbd535b8da6eb736af6128f0749bc32e37))
+
+### Features
+
+* **frontend:** replace eslint-plugin-import with eslint-plugin-import-x ([cd180d8](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/cd180d87c1b0e8ee2b411c42bf3aca3b962a57ad))
+
+### Bug Fixes
+
+* **frontend:** drop the ESLint 10 claim from the peer range ([374adc1](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/374adc1397bdd5991ab6a334993147239b459f41))
+
+## [1.0.2-dev.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.2-dev.1...v1.0.2-dev.2) (2026-09-16)
+
+### Bug Fixes
+
+* **rules:** stop reporting computed member access ([ce9ecf9](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/ce9ecf909b7114c99c1a0c2728e218c18fa5d474))
+
+## [1.0.2-dev.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.1...v1.0.2-dev.1) (2026-09-16)
+
+### Bug Fixes
+
+* **ci:** publish the stable releases under the latest npm tag ([725cdb3](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/725cdb3d07a7a53a4d6ae232a1e48bca2dc8c485))
+
+## [1.0.1-dev.2](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.1-dev.1...v1.0.1-dev.2) (2026-09-16)
+
+### Bug Fixes
+
+* **ci:** publish the stable releases under the latest npm tag ([725cdb3](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/725cdb3d07a7a53a4d6ae232a1e48bca2dc8c485))
+
 ## [1.0.1-dev.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.0...v1.0.1-dev.1) (2026-09-16)
 
 ### Bug Fixes

@@ -9,7 +9,9 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   nodePlugin.configs['flat/recommended'],
-  eslintPlugin.configs['flat/recommended'],
+  // eslint-plugin-eslint-plugin 7 dropped the `flat/` prefixed configs: the
+  // flat config is the only one left, so it took the unprefixed name.
+  eslintPlugin.configs.recommended,
   {
     rules: {
       'n/file-extension-in-import': ['error', 'always'],
@@ -38,7 +40,9 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['**/dist/'],
+    // The fixture is deliberately unsorted and its imports are never installed:
+    // it is input for the config tests, not source code.
+    ignores: ['**/dist/', '**/tests/fixture/'],
   },
   prettierPluginRecommended,
 );

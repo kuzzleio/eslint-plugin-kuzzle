@@ -16,8 +16,11 @@ const arrayForeach: Rule.RuleModule = {
   create(context) {
     return {
       CallExpression(node) {
+        // `computed` guards against `obj[forEach](...)`, where `forEach` is a
+        // variable that happens to carry that name, not the property read.
         if (
           node.callee.type === 'MemberExpression' &&
+          !node.callee.computed &&
           node.callee.property.type === 'Identifier' &&
           node.callee.property.name === 'forEach'
         ) {

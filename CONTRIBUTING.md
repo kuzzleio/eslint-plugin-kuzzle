@@ -38,18 +38,33 @@ To work on a single package: `npm run build -w eslint-plugin-kuzzle`.
 
 ## Documentation
 
-`doc/1/` holds the pages published at
-<https://docs.kuzzle.io/official-plugins/eslint/1/>. One directory = one page,
-always named `index.md`, and the frontmatter is strictly validated — an unknown
-or missing field aborts the documentation build.
+`doc/<major>/` holds the pages published at
+<https://docs.kuzzle.io/official-plugins/eslint/><major>`/`. One directory = one
+page, always named `index.md`, and the frontmatter is strictly validated — an
+unknown or missing field aborts the documentation build.
 
 Internal links are absolute and carry the version:
-`/official-plugins/eslint/1/rules/no-then/`.
+`/official-plugins/eslint/2/rules/no-then/`. A `doc/N/` copied from `doc/N-1/`
+still points at the old version — grep for the number before anything else.
 
 A push to `master` or `1-dev` triggers the `documentation_deploy` job, which
 dispatches `child_repo.workflow.yml` in
 [kuzzleio/documentation](https://github.com/kuzzleio/documentation): `master`
 deploys to `docs.kuzzle.io`, `1-dev` to `docs-next.kuzzle.io`.
+
+### A new major means a new doc version
+
+A section only exists if the framework repo knows about it. Releasing 3.0.0
+means, in this repo: `doc/3/`, the links inside it, `DOC_BASE` in
+`packages/backend/lib/utils/docUrl.ts`, and the `version` in the
+`client_payload` of the `documentation_deploy` job. Then, in
+[kuzzleio/documentation](https://github.com/kuzzleio/documentation): an entry in
+`.repos/repositories.json` and a key in `src/.vuepress/sections.json`.
+
+Miss the framework half and the build reports success while deploying nothing —
+`kuzdoc install --repo=eslint-plugin-kuzzle-3` resolves no repo and exits 0.
+That is how the v1 pages stayed 404 for two releases while every rule's
+`meta.docs.url` pointed at them.
 
 ## Commits
 
@@ -88,3 +103,29 @@ Releases are automatic: `semantic-release` runs in CI on every push to those
 branches, computes the version from the commits, publishes both packages to npm
 with trusted publishing, tags the repository and updates
 `changelogs/CHANGELOG_<channel>.md`. **Never bump a version by hand.**
+
+### Backmerge after a stable release
+
+The one manual step. A release on `master` lands a `chore(release):` commit and
+a tag that exist **only** on `master`. As long as they are not merged back,
+`semantic-release` on `1-dev` cannot see them and keeps numbering from the last
+prerelease: after `v1.0.1` shipped, `1-dev` produced `v1.0.1-dev.2`, which sorts
+_below_ the stable it was supposed to follow, and `npm install @dev` served an
+older package than `@latest`.
+
+So, right after a release on `master`:
+
+```sh
+git checkout 1-dev
+git pull
+git merge origin/master
+git push origin 1-dev
+```
+
+Expect a conflict on the version field of `package.json`, `package-lock.json`
+and both `packages/*/package.json`: keep the one from `master`, it is the higher
+version. Nothing else should conflict.
+
+This is deliberately not automated — a bot merge that fails on those conflicts
+goes unnoticed, and the whole point is that someone checks the numbering is
+still coherent.

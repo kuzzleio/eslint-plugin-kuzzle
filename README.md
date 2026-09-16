@@ -10,7 +10,7 @@ other — a full-stack repository installs both, one per workspace.
 | [`eslint-plugin-kuzzle`](./packages/backend)      | Node.js / TypeScript backends, plugins, SDKs | [![npm](https://img.shields.io/npm/v/eslint-plugin-kuzzle)](https://www.npmjs.com/package/eslint-plugin-kuzzle)         |
 | [`eslint-plugin-vue-kuzzle`](./packages/frontend) | Vue.js 3 frontends                           | [![npm](https://img.shields.io/npm/v/eslint-plugin-vue-kuzzle)](https://www.npmjs.com/package/eslint-plugin-vue-kuzzle) |
 
-📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/1/)**
+📖 **[Full documentation](https://docs.kuzzle.io/official-plugins/eslint/2/)**
 
 ## Quick start
 
@@ -55,8 +55,8 @@ Shipped by `eslint-plugin-kuzzle`, under the `kuzzle` namespace:
 
 | Rule                                                                                            | Description                                  | Default      |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------- | ------------ |
-| [`kuzzle/array-foreach`](https://docs.kuzzle.io/official-plugins/eslint/1/rules/array-foreach/) | enforce `for..of` loops over `Array.forEach` | `warn`       |
-| [`kuzzle/no-then`](https://docs.kuzzle.io/official-plugins/eslint/1/rules/no-then/)             | enforce `async/await` over Promise chains    | off (opt-in) |
+| [`kuzzle/array-foreach`](https://docs.kuzzle.io/official-plugins/eslint/2/rules/array-foreach/) | enforce `for..of` loops over `Array.forEach` | `warn`       |
+| [`kuzzle/no-then`](https://docs.kuzzle.io/official-plugins/eslint/2/rules/no-then/)             | enforce `async/await` over Promise chains    | off (opt-in) |
 
 ## Requirements
 
@@ -72,6 +72,7 @@ Shipped by `eslint-plugin-kuzzle`, under the `kuzzle` namespace:
 packages/backend/    eslint-plugin-kuzzle       — configs + custom rules + tests
 packages/frontend/   eslint-plugin-vue-kuzzle   — Vue configs + importOptions helper
 doc/1/               the pages published at docs.kuzzle.io/official-plugins/eslint/1/
+doc/2/               the pages published at docs.kuzzle.io/official-plugins/eslint/2/
 ```
 
 ## Development

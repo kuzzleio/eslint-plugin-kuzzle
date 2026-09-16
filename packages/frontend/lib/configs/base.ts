@@ -1,6 +1,6 @@
 import type TSESLint from '@typescript-eslint/utils/ts-eslint';
 import prettier from '@vue/eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import-x';
 import pluginVue from 'eslint-plugin-vue';
 import importOptions from '../utils/importOptions.js';
 
@@ -14,10 +14,10 @@ const baseConfig: TSESLint.FlatConfig.ConfigArray = [
   ...pluginVue.configs['flat/recommended'],
   {
     plugins: {
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     rules: {
-      'import/order': ['error', importOptions(['~', '@'])],
+      'import-x/order': ['error', importOptions(['~', '@'])],
       'no-console': ['error', { allow: ['warn', 'error'] }],
       'no-debugger': 'error',
     },
