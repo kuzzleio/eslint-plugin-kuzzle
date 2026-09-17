@@ -54,14 +54,8 @@ block. On a project with no `.ts` and no `tsconfig.json`, that reports every
 single component and nothing else: the error is about the config being the wrong
 one, not about the code.
 
-```js
-// eslint.config.mjs — a Vue 3 frontend in plain JavaScript
-import vueKuzzle from 'eslint-plugin-vue-kuzzle';
-
-export default [{ ignores: ['dist/**', 'coverage/**'] }, ...vueKuzzle.configs.base];
-```
-
-Switch to `configs.default` the day the project adopts TypeScript.
+Spread it exactly like `configs.default` in the example above. Switch back to
+`configs.default` the day the project adopts TypeScript.
 
 ### `configs.typescript`
 
