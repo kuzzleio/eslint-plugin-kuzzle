@@ -38,13 +38,24 @@ projects that need to compose something different.
 
 `base`, then the Vue-aware TypeScript parser setup from
 `@vue/eslint-config-typescript`, then `typescript`. This is what you want unless
-you have a reason not to.
+you have a reason not to — and a **JavaScript-only frontend is such a reason**,
+see below.
 
 ### `configs.base`
 
 `eslint-plugin-vue` flat/recommended, `import-x/order`, `no-console`,
 `no-debugger`, then Prettier last. No TypeScript, so no parser for `<script
 lang="ts">`.
+
+**This is the config to spread on a frontend written in plain JavaScript.**
+`configs.default` brings in `@vue/eslint-config-typescript`, which turns on
+`vue/block-lang` — the rule that requires a `lang` attribute on every `<script>`
+block. On a project with no `.ts` and no `tsconfig.json`, that reports every
+single component and nothing else: the error is about the config being the wrong
+one, not about the code.
+
+Spread it exactly like `configs.default` in the example above. Switch back to
+`configs.default` the day the project adopts TypeScript.
 
 ### `configs.typescript`
 
