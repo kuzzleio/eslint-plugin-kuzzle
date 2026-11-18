@@ -39,6 +39,15 @@ describe('configs.base', () => {
 
     expect(ruleIds(results)).toEqual(expect.arrayContaining(['import-x/order', 'no-console']));
   });
+
+  // #26: the ESLint core baseline was missing from the frontend configs.
+  it('reports the ESLint core recommended rules', async () => {
+    const results = await lint(plugin.configs!['base'] as Linter.Config[], ['src/core.js']);
+
+    expect(ruleIds(results)).toEqual(
+      expect.arrayContaining(['no-constant-binary-expression', 'valid-typeof']),
+    );
+  });
 });
 
 describe('configs.default', () => {
