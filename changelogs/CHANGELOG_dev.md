@@ -1,3 +1,9 @@
+## [2.1.0-dev.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v2.0.0...v2.1.0-dev.1) (2026-11-18)
+
+### Features
+
+* **frontend:** start the base config with js.configs.recommended ([bd18ea5](https://github.com/kuzzleio/eslint-plugin-kuzzle/commit/bd18ea5a82ca5119181307b369c6278956a14d9d)), closes [#26](https://github.com/kuzzleio/eslint-plugin-kuzzle/issues/26)
+
 ## [2.0.0-dev.1](https://github.com/kuzzleio/eslint-plugin-kuzzle/compare/v1.0.2-dev.2...v2.0.0-dev.1) (2026-09-16)
 
 ### ⚠ BREAKING CHANGES
